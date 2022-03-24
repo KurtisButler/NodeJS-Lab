@@ -1,9 +1,9 @@
 const path = require("path");
 const fs = require("fs");
 const dataPath = path.join(__dirname, "./popular-articles.json");
-const rp = require("request-promise");
+const reqProm = require("request-promise");
 
-rp("https://reddit.com/r/popular.json").then((rawData) => {
+reqProm("https://reddit.com/r/popular.json").then((rawData) => {
   let popular = JSON.parse(rawData);
   popular.data.children.forEach((post) => {
     let ext = path.extname(post.data.url);
