@@ -10,7 +10,7 @@ reqProm("https://reddit.com/r/popular.json").then((rawData) => {
     let name = post.data.id;
     let fileName = name + ext;
     if (ext === ".jpg" || ext === ".png") {
-      rp(post.data.url, { encoding: "base64" }).then((media) => {
+      reqProm(post.data.url, { encoding: "base64" }).then((media) => {
         fs.writeFile(
           path.join(__dirname, `./downloads/${fileName}`),
           media,
