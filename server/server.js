@@ -42,7 +42,7 @@ fs.readFile(
     encoding: "utf-8",
   },
 
-  (err) => {
+  (err, data) => {
     if (err) console.log(err);
     let chirpData = JSON.parse(chirps);
     console.log(chirpData);
